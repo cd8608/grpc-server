@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "grpcserver.location";
+option java_outer_classname = "LocationProto";
+option objc_class_prefix = "RTG";
+
+package location;
+
+service Location {
+
+  rpc shareLocation(Point) returns (Response) {}
+}
+
+message Point {
+  double latitude = 1;
+  double longitude = 2;
+}
+
+message Response {
+  string message = 1;
+}

@@ -1,0 +1,16 @@
+version: '2'
+services:
+  grpc-server:
+    image: grpc-server:1.0.0
+    container_name: grpc-server
+    ports:
+      - "50051:50051"
+    environment:
+      - ZOOKEEPER_ADDRESS=zookeeper:2181
+      - ZOOKEEPER_TOPIC=node-test3
+    networks:
+      - docker_default
+
+networks:
+  docker_default:
+    external: true
